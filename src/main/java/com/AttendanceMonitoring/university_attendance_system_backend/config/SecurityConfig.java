@@ -56,9 +56,10 @@ public class SecurityConfig {
        @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .cors(Customizer.withDefaults()) // Enable CORS using global config
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth
+            http
+              .cors(Customizer.withDefaults())
+              .csrf(csrf -> csrf.disable())
+              .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/login", "/admin/addUser").permitAll()
                 .anyRequest().authenticated()
             )
