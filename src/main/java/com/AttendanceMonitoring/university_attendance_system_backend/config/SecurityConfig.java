@@ -53,20 +53,20 @@ public class SecurityConfig {
     }
 
 
-    @Bean
+       @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .cors() // Enable CORS support
-                .and()
-                .csrf().disable() // Disable CSRF for REST APIs
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/login", "/admin/addUser").permitAll() // Allow unauthenticated access
-                        .anyRequest().authenticated() // Protect other endpoints
-                )
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-
+            .cors(Customizer.withDefaults()) // Enable CORS using global config
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/login", "/admin/addUser").permitAll()
+                .anyRequest().authenticated()
+            )
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+    
         return http.build();
     }
+
 
 
 
