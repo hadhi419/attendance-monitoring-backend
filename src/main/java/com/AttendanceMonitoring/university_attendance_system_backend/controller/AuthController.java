@@ -86,9 +86,6 @@ public class AuthController {
                     .body(Map.of("message", "Invalid email or password"));
         }
 
-        return ResponseEntity.ok(Map.of(
-                "message", "Login endpoint is not implemented yet"
-        ));
     }
 
     @Value("${recaptcha.secret}")
