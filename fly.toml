@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for backend-repo-proud-violet-3360 on 2025-08-09T02:53:29+05:30
+# fly.toml app configuration file generated for backend-repo-hidden-water-811 on 2025-08-09T03:53:11+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'backend-repo-proud-violet-3360'
+app = 'backend-repo-hidden-water-811'
 primary_region = 'sin'
 
 [build]
