@@ -83,7 +83,7 @@ public class AuthController {
             }
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Map.of("message", "Could not create token email or password"));
+                    .body(Map.of("message", "Could not create token email or password "+ e.getMessage()));
         }
 
     }
