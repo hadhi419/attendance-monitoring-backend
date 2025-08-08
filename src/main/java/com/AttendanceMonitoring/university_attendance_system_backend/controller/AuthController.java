@@ -21,7 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173", "https://university-attendance-system-git-feat-5018fb-hadhi419s-projects.vercel.app"})
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://attendance-monitoring-frontend-beige.vercel.app",
+    "https://attendance-monitoring-frontend-git-main-hadhi419s-projects.vercel.app",
+    "https://attendance-monitoring-frontend-q5etrxdiq-hadhi419s-projects.vercel.app"
+})
+
 @RequestMapping("/api")
 public class AuthController {
 
