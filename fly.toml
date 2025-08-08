@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for backend-repo-snowy-surf-5449 on 2025-08-09T00:20:56+05:30
+# fly.toml app configuration file generated for backend-repo-silent-butterfly-7738 on 2025-08-09T00:40:43+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'backend-repo-snowy-surf-5449'
+app = 'backend-repo-silent-butterfly-7738'
 primary_region = 'sin'
 
 [build]
