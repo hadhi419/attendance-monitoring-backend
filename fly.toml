@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for backend-repo-wandering-butterfly-9790 on 2025-08-09T01:34:58+05:30
+# fly.toml app configuration file generated for backend-repo-bitter-frost-5275 on 2025-08-09T01:41:37+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'backend-repo-wandering-butterfly-9790'
+app = 'backend-repo-bitter-frost-5275'
 primary_region = 'sin'
 
 [build]
