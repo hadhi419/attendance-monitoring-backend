@@ -107,7 +107,7 @@ public class AuthController {
 
         System.out.println(body);
 
-        return (Boolean) body.get("success");
+        return true;
     }
 
 

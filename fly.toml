@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for backend-repo-floral-paper-4480 on 2025-08-08T22:49:34+05:30
+# fly.toml app configuration file generated for backend-repo-damp-sky-7616 on 2025-08-08T23:09:03+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'backend-repo-floral-paper-4480'
+app = 'backend-repo-damp-sky-7616'
 primary_region = 'sin'
 
 [build]
