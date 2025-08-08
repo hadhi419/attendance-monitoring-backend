@@ -45,46 +45,50 @@ public class AuthController {
 //            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Captcha verification failed");
 //        }
 
-        String username = loginRequest.getUsername();
-        String password = loginRequest.getPassword();
+        // String username = loginRequest.getUsername();
+        // String password = loginRequest.getPassword();
 
-        System.out.println(username);
-        System.out.println(password);
+        // System.out.println(username);
+        // System.out.println(password);
 
-        try {
+        // try {
 
-            System.out.println("User found");
+        //     System.out.println("User found");
 
-            User user = jdbcTemplate.queryForObject(
-                    "SELECT * FROM users WHERE email = ?",
-                    (rs, rowNum) -> {
-                        User u = new User();
-                        u.setId(rs.getLong("id"));
-                        u.setEmail(rs.getString("email"));
-                        u.setPassword(rs.getString("password"));
-                        u.setRole(Role.valueOf(rs.getString("role").toUpperCase())); // 👈 this is essential
+        //     User user = jdbcTemplate.queryForObject(
+        //             "SELECT * FROM users WHERE email = ?",
+        //             (rs, rowNum) -> {
+        //                 User u = new User();
+        //                 u.setId(rs.getLong("id"));
+        //                 u.setEmail(rs.getString("email"));
+        //                 u.setPassword(rs.getString("password"));
+        //                 u.setRole(Role.valueOf(rs.getString("role").toUpperCase())); // 👈 this is essential
 
-                        return u;
-                    },
-                    username
-            );
+        //                 return u;
+        //             },
+        //             username
+        //     );
 
-            if (user != null && passwordEncoder.matches(password, user.getPassword())) {
-                String token = jwtUtil.generateToken(user.getEmail(), user.getRole().name());
-                UserResponse userResponse = new UserResponse(user.getEmail(), user.getRole().name());
+        //     if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+        //         String token = jwtUtil.generateToken(user.getEmail(), user.getRole().name());
+        //         UserResponse userResponse = new UserResponse(user.getEmail(), user.getRole().name());
 
-                return ResponseEntity.ok(Map.of(
-                        "user", userResponse,
-                        "token", token
-                ));
-            } else {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                        .body(Map.of("message", "Invalid email or password"));
-            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Map.of("message", "Invalid email or password"));
-        }
+        //         return ResponseEntity.ok(Map.of(
+        //                 "user", userResponse,
+        //                 "token", token
+        //         ));
+        //     } else {
+        //         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+        //                 .body(Map.of("message", "Invalid email or password"));
+        //     }
+        // } catch (Exception e) {
+        //     return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+        //             .body(Map.of("message", "Invalid email or password"));
+        // }
+
+        return ResponseEntity.ok(Map.of(
+                "message", "Login endpoint is not implemented yet"
+        ));
     }
 
     @Value("${recaptcha.secret}")
