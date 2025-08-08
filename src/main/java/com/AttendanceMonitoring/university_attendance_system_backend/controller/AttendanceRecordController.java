@@ -59,6 +59,13 @@ public class AttendanceRecordController {
         return attendanceRecordService.getAttendanceSummaryByStudentAndCourse(registration_number, course_code);
     }
 
+    @GetMapping("/api/test")
+    public String test(
+            @PathVariable String registration_number,
+            @PathVariable String course_code) {
+        return "Successfull";
+    }
+
     @GetMapping("/course/{courseCode}/by-date")
     public List<AttendanceByCourse> getAttendanceByCourse(
             @PathVariable String courseCode,
