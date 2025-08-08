@@ -10,6 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.security.config.Customizer;
+
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -55,9 +57,7 @@ public class SecurityConfig {
 
        @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            http
-              .cors(Customizer.withDefaults())
+        http.cors(Customizer.withDefaults())
               .csrf(csrf -> csrf.disable())
               .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/login", "/admin/addUser").permitAll()
