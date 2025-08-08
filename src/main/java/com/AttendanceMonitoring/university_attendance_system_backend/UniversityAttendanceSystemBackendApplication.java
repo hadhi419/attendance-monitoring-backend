@@ -16,6 +16,15 @@ public class UniversityAttendanceSystemBackendApplication {
 		String port = env.getProperty("server.port", "8080");
 
 		System.out.println("Server configured to listen on: " + address + ":" + port);
+
+		// Log environment variables for debugging (mask password for security)
+		String dbUrl = env.getProperty("DBURL", "NOT SET");
+		String user = env.getProperty("USER", "NOT SET");
+		String password = env.getProperty("PASSWORD", "NOT SET");
+
+		System.out.println("DBURL = " + dbUrl);
+		System.out.println("USER = " + user);
+		System.out.println("PASSWORD = " + (password.equals("NOT SET") ? "NOT SET" : "******"));
 	}
 
 }
