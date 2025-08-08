@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for backend-repo-bitter-flower-3094 on 2025-08-08T23:33:06+05:30
+# fly.toml app configuration file generated for backend-repo-purple-sun-1833 on 2025-08-08T23:52:51+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'backend-repo-bitter-flower-3094'
+app = 'backend-repo-purple-sun-1833'
 primary_region = 'sin'
 
 [build]
