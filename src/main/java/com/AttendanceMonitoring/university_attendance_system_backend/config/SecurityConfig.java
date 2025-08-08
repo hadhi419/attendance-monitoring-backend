@@ -50,14 +50,14 @@ public class SecurityConfig {
         return http.build();
     }
 
-   @Bean
-    public UrlBasedCorsConfigurationSource corsConfigurationSource() {
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList(
-            "http://localhost:5173",
-            "https://attendance-monitoring-frontend-beige.vercel.app",
-            "https://attendance-monitoring-frontend-git-main-hadhi419s-projects.vercel.app",
-            "https://attendance-monitoring-frontend-q5etrxdiq-hadhi419s-projects.vercel.app"
+                "http://localhost:5173",
+                "https://attendance-monitoring-frontend-beige.vercel.app",
+                "https://attendance-monitoring-frontend-git-main-hadhi419s-projects.vercel.app",
+                "https://attendance-monitoring-frontend-q5etrxdiq-hadhi419s-projects.vercel.app"
         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
@@ -70,12 +70,6 @@ public class SecurityConfig {
 
 
 
-    @Bean
-    public FilterRegistrationBean<CorsFilter> corsFilter() {
-        UrlBasedCorsConfigurationSource source = corsConfigurationSource(); // This is the concrete source
-        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
-        bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-        return bean;
-    }
+
 
 }

@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for backend-repo-broken-glade-6534 on 2025-08-09T02:05:20+05:30
+# fly.toml app configuration file generated for backend-repo-empty-mountain-1811 on 2025-08-09T02:14:34+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'backend-repo-broken-glade-6534'
+app = 'backend-repo-empty-mountain-1811'
 primary_region = 'sin'
 
 [build]
