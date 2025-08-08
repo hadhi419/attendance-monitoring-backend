@@ -54,7 +54,7 @@ public class AuthController {
         String username = loginRequest.getUsername();
         String password = loginRequest.getPassword();
 
-        System.out.println(username);
+        System.out.println(loginRequest.getUsername());
         System.out.println(password);
 
         try {
