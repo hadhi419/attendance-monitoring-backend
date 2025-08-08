@@ -10,8 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.security.config.Customizer;
-
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -33,20 +31,13 @@ public class SecurityConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/admin/**")
-                        .allowedOrigins("http://localhost:5173")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*")
-                        .allowCredentials(true);
-
-                registry.addMapping("/courses/**") // this must be separate
-                        .allowedOrigins("http://localhost:5173")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*")
-                        .allowCredentials(true);
-
-                registry.addMapping("/enrollments/**") // this must be separate
-                        .allowedOrigins("http://localhost:5173")
+                registry.addMapping("/**")  // all API paths
+                        .allowedOrigins(
+                                "http://localhost:5173",
+                                "https://attendance-monitoring-frontend-beige.vercel.app",
+                                "https://attendance-monitoring-frontend-git-main-hadhi419s-projects.vercel.app",
+                                "https://attendance-monitoring-frontend-q5etrxdiq-hadhi419s-projects.vercel.app"
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
@@ -55,19 +46,21 @@ public class SecurityConfig {
     }
 
 
-       @Bean
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors(Customizer.withDefaults())
-              .csrf(csrf -> csrf.disable())
-              .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/login", "/admin/addUser").permitAll()
-                .anyRequest().authenticated()
-            )
-            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-    
+        http
+                .cors() // Enable CORS support
+                .and()
+                .csrf().disable() // Disable CSRF for REST APIs
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/login", "/admin/addUser").permitAll() // Allow unauthenticated access
+                        .anyRequest().authenticated() // Protect other endpoints
+                )
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
-
 
 
 
