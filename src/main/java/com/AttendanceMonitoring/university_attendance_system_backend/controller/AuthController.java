@@ -88,7 +88,7 @@
                 }
             } catch (Exception e) {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                        .body(Map.of("message", "Could not create token email or password "+ e.getMessage()));
+                        .body(Map.of("message", e.getMessage()));
             }
 
         }
